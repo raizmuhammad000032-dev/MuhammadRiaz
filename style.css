@@ -11,15 +11,24 @@
 }
 
 :root {
-  --bg-color: #081b29;
-  --main-color: #00abf0;
-  --text-color: #333;
-  --second-text-color: #555;
-  --white-color: #fff;
-  --cover-color: linear-gradient(45deg, #00abf0, #006e9a);
-  --pages-color: linear-gradient(90deg, #fff, #ddd);
-  --border: 0.125rem solid #00abf0;
-  --box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.2);
+  --bg-color: #050a1f;
+  /* slightly lighter for readability */
+  --main-color: #00e5ff;
+  --text-color: #f1f5f9;
+  --second-text-color: #cbd5e1;
+  --white-color: #ffffff;
+
+  /* stronger gradient for visibility */
+  --cover-color: linear-gradient(135deg, #00e5ff, #3b82f6);
+
+  /* FIX: more solid background instead of too transparent */
+  --pages-color: rgba(15, 23, 42, 0.85);
+
+  /* FIX: stronger border visibility */
+  --border: 1px solid rgba(0, 229, 255, 0.5);
+
+  /* FIX: stronger glow shadow */
+  --box-shadow: 0 0 25px rgba(0, 229, 255, 0.25);
 }
 body {
   display: flex;
@@ -28,8 +37,7 @@ body {
   min-height: 100vh;
   background: var(--bg-color);
   color: var(--text-color);
-  overflow-x: hidden;
-    
+  overflow: hidden;
 }
 .wrapper {
   position: relative;
@@ -90,6 +98,8 @@ body {
   box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.1);
   display: flex;
   padding: 2rem;
+  color: var(--text-color);
+
 }
 .book-page.page-left {
   box-shadow: -0.6rem 0.6rem 0.6rem rgba(0, 0, 0, 0.1);
@@ -435,116 +445,141 @@ body {
   }
 }
 
-/* ================= MOBILE RESPONSIVE FIX ================= */
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
 
-  .book .book-page {
-      width: 100% !important;
-      /* 🔥 FIX */
-      left: 0 !important;
-      right: 0 !important;
-    }
-  
-    .book-page.page-left,
-    .book-page.page-right {
-      width: 100% !important;
-      position: relative;
-    }
+  /* ================= BODY ================= */
+  body {
+    display: block;
+    padding: 15px;
+    background: var(--bg-color);
+    overflow-x: hidden;
+  }
 
+  /* ================= WRAPPER ================= */
   .wrapper {
     width: 100%;
     height: auto;
-    padding: 0;
+    padding: 10px;
     perspective: none;
   }
 
+  /* ================= BOOK LAYOUT ================= */
   .book {
+    display: flex;
     flex-direction: column;
-    height: auto;
+    gap: 15px;
   }
 
   .book .book-page {
     position: relative;
     width: 100%;
     height: auto;
+
+    padding: 20px;
+    margin: 0;
+
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+
+    overflow: hidden;
     transform: none !important;
-    margin-bottom: 20px;
+  }
+
+  /* ================= PAGE FIX ================= */
+  .page-front,
+  .page-back {
+    position: relative;
+    transform: none !important;
+    width: 100%;
+    height: auto;
   }
 
   .book-page.page-right {
     transform: none !important;
   }
 
-  .book-page .page-front,
-  .book-page .page-back {
-    position: relative;
-    transform: none !important;
-    height: auto;
-    padding: 1rem;
+  /* ================= TYPOGRAPHY ================= */
+  h1 {
+    font-size: 1.6rem;
+    text-align: center;
   }
 
-  .cover {
-    display: none;
-    /* hide 3D covers */
+  h2 {
+    font-size: 1.3rem;
   }
 
-  .nextprev-btn {
-    display: none;
-    /* hide arrows */
+  h3 {
+    font-size: 1.1rem;
   }
 
-  /* Profile */
-  .profile-page img {
-    max-width: 120px;
+  p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--second-text-color);
   }
 
-  .profile-page h1 {
-    font-size: 1.8rem;
-  }
-
-  .profile-page h3 {
-    font-size: 1.2rem;
-  }
-
-  /* Buttons */
-  .btn-box {
-    display: flex;
-    flex-direction: column;
+  /* ================= PROFILE ================= */
+  .profile-page {
+    text-align: center;
     gap: 10px;
   }
 
+  .profile-page img {
+    width: 110px;
+    height: 110px;
+    margin: 0 auto;
+  }
+
+  /* ================= BUTTON ================= */
   .btn {
     width: 100%;
-    margin: 0;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+    text-align: center;
   }
 
-  /* Services */
-  .services-box {
-    flex-direction: column;
+  /* ================= SKILLS ================= */
+  .skills-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
   }
 
-  /* Skills */
-  .skills-box {
-    flex-direction: column;
+  .skills-content span {
+    width: auto;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    border-radius: 6px;
   }
 
-  .skills-content .content span {
-    width: 100%;
-    height: auto;
-    padding: 10px;
+  /* ================= TIMELINE ================= */
+  .workeduc-box {
+    padding-left: 12px;
   }
 
-  /* Portfolio */
-  .portfolio-box .img-box {
-    height: auto;
+  .workeduc-content {
+    margin-bottom: 12px;
   }
 
-  .portfolio-box .btn-box {
-    flex-direction: column;
+  /* ================= PORTFOLIO ================= */
+  .img-box {
+    height: 180px;
+    border-radius: 10px;
   }
 
-  /* Contact */
+  /* ================= CONTACT ================= */
+  .contact-box input,
   .contact-box textarea {
-    height: 120px;
+    font-size: 0.95rem;
+    padding: 10px;
+    border-radius: 6px;
+  }
+
+  /* ================= HIDE ELEMENTS ================= */
+  .cover,
+  .nextprev-btn {
+    display: none !important;
   }
 }
