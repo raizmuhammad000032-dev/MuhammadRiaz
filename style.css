@@ -437,6 +437,34 @@ body {
   top: -1.8rem;
 }
 
+/* card style  contact edited */
+.contact-item {
+  padding: 1rem 1.2rem;
+  border: var(--border);
+  border-radius: 10px;
+  background: rgba(0, 229, 255, 0.05);
+  box-shadow: var(--box-shadow);
+  transition: 0.3s ease;
+}
+
+.contact-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 30px rgba(0, 229, 255, 0.35);
+}
+
+/* heading */
+.contact-item h4 {
+  font-size: 1.1rem;
+  color: var(--main-color);
+  margin-bottom: 0.3rem;
+}
+
+/* text */
+.contact-item p {
+  font-size: 0.95rem;
+  color: var(--text-color);
+  word-break: break-word;
+}
 /* Responsive */
 @media screen and (max-width: 1024px) {
   .wrapper {
