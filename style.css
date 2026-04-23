@@ -438,11 +438,18 @@ body {
 /* ================= MOBILE RESPONSIVE FIX ================= */
 @media screen and (max-width: 768px) {
 
-  body {
-    overflow: auto;
-    /* مهم: scroll enable */
-    padding: 10px;
-  }
+  .book .book-page {
+      width: 100% !important;
+      /* 🔥 FIX */
+      left: 0 !important;
+      right: 0 !important;
+    }
+  
+    .book-page.page-left,
+    .book-page.page-right {
+      width: 100% !important;
+      position: relative;
+    }
 
   .wrapper {
     width: 100%;
