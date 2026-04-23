@@ -445,12 +445,14 @@ body {
   }
 }
 
-/* ================= MOBILE FIX (IMPORTANT) ================= */
+/* ================= MOBILE ================= */
 @media (max-width: 768px) {
 
   body {
     display: block;
-    padding: 12px;
+    padding: 10px;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   .wrapper {
@@ -460,14 +462,15 @@ body {
     perspective: none;
   }
 
-  /* convert book to vertical layout */
+  /* IMPORTANT FIX */
   .book {
     display: flex;
     flex-direction: column;
+    height: auto;
     gap: 15px;
   }
 
-  /* FORCE ALL PAGES VISIBLE */
+  /* 🔥 FORCE ALL PAGES SHOW */
   .book .book-page {
     position: relative !important;
     width: 100% !important;
@@ -479,40 +482,50 @@ body {
     transform: none !important;
     opacity: 1 !important;
     visibility: visible !important;
+
+    overflow: visible !important;
   }
 
-  /* disable flip */
+  /* disable flip system */
   .book-page.page-right,
   .book-page.page-right.turn {
     transform: none !important;
   }
 
+  /* front/back fix */
   .page-front,
   .page-back {
     position: relative !important;
-    transform: none !important;
     height: auto;
+    transform: none !important;
   }
 
-  /* buttons full width */
+  /* 🔥 IMPORTANT SCROLL FIX */
+  .wrapper,
+  .book {
+    overflow: visible !important;
+  }
+
+  /* buttons */
   .btn {
     width: 100%;
   }
 
-  /* profile image */
-  .profile-page img {
-    width: 120px;
-    height: 120px;
+  /* skills fix */
+  .skills-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
   }
 
-  /* skills */
   .skills-content span {
     width: auto;
   }
 
-  /* hide flip UI */
+  /* hide controls */
   .cover,
   .nextprev-btn {
     display: none !important;
   }
 }
+
