@@ -445,17 +445,14 @@ body {
   }
 }
 
+/* ================= MOBILE FIX (IMPORTANT) ================= */
 @media (max-width: 768px) {
 
-  /* ================= BODY ================= */
   body {
     display: block;
-    padding: 15px;
-    background: var(--bg-color);
-    overflow-x: hidden;
+    padding: 12px;
   }
 
-  /* ================= WRAPPER ================= */
   .wrapper {
     width: 100%;
     height: auto;
@@ -463,121 +460,57 @@ body {
     perspective: none;
   }
 
-  /* ================= BOOK LAYOUT ================= */
+  /* convert book to vertical layout */
   .book {
     display: flex;
     flex-direction: column;
     gap: 15px;
   }
 
+  /* FORCE ALL PAGES VISIBLE */
   .book .book-page {
-    position: relative;
-    width: 100%;
-    height: auto;
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
 
-    padding: 20px;
-    margin: 0;
+    display: block !important;
+    margin-bottom: 15px;
 
-    border-radius: 12px;
-    backdrop-filter: blur(10px);
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
 
-    overflow: hidden;
+  /* disable flip */
+  .book-page.page-right,
+  .book-page.page-right.turn {
     transform: none !important;
   }
 
-  /* ================= PAGE FIX ================= */
   .page-front,
   .page-back {
-    position: relative;
+    position: relative !important;
     transform: none !important;
-    width: 100%;
     height: auto;
   }
 
-  .book-page.page-right {
-    transform: none !important;
-  }
-
-  /* ================= TYPOGRAPHY ================= */
-  h1 {
-    font-size: 1.6rem;
-    text-align: center;
-  }
-
-  h2 {
-    font-size: 1.3rem;
-  }
-
-  h3 {
-    font-size: 1.1rem;
-  }
-
-  p {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: var(--second-text-color);
-  }
-
-  /* ================= PROFILE ================= */
-  .profile-page {
-    text-align: center;
-    gap: 10px;
-  }
-
-  .profile-page img {
-    width: 110px;
-    height: 110px;
-    margin: 0 auto;
-  }
-
-  /* ================= BUTTON ================= */
+  /* buttons full width */
   .btn {
     width: 100%;
-    padding: 12px;
-    font-size: 1rem;
-    border-radius: 8px;
-    text-align: center;
   }
 
-  /* ================= SKILLS ================= */
-  .skills-content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    justify-content: center;
+  /* profile image */
+  .profile-page img {
+    width: 120px;
+    height: 120px;
   }
 
+  /* skills */
   .skills-content span {
     width: auto;
-    padding: 8px 12px;
-    font-size: 0.85rem;
-    border-radius: 6px;
   }
 
-  /* ================= TIMELINE ================= */
-  .workeduc-box {
-    padding-left: 12px;
-  }
-
-  .workeduc-content {
-    margin-bottom: 12px;
-  }
-
-  /* ================= PORTFOLIO ================= */
-  .img-box {
-    height: 180px;
-    border-radius: 10px;
-  }
-
-  /* ================= CONTACT ================= */
-  .contact-box input,
-  .contact-box textarea {
-    font-size: 0.95rem;
-    padding: 10px;
-    border-radius: 6px;
-  }
-
-  /* ================= HIDE ELEMENTS ================= */
+  /* hide flip UI */
   .cover,
   .nextprev-btn {
     display: none !important;
