@@ -28,7 +28,8 @@ body {
   min-height: 100vh;
   background: var(--bg-color);
   color: var(--text-color);
-  overflow: hidden;
+  overflow-x: hidden;
+    
 }
 .wrapper {
   position: relative;
@@ -431,5 +432,112 @@ body {
   .wrapper {
     width: 60rem;
     height: 40rem;
+  }
+}
+
+/* ================= MOBILE RESPONSIVE FIX ================= */
+@media screen and (max-width: 768px) {
+
+  body {
+    overflow: auto;
+    /* مهم: scroll enable */
+    padding: 10px;
+  }
+
+  .wrapper {
+    width: 100%;
+    height: auto;
+    padding: 0;
+    perspective: none;
+  }
+
+  .book {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .book .book-page {
+    position: relative;
+    width: 100%;
+    height: auto;
+    transform: none !important;
+    margin-bottom: 20px;
+  }
+
+  .book-page.page-right {
+    transform: none !important;
+  }
+
+  .book-page .page-front,
+  .book-page .page-back {
+    position: relative;
+    transform: none !important;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .cover {
+    display: none;
+    /* hide 3D covers */
+  }
+
+  .nextprev-btn {
+    display: none;
+    /* hide arrows */
+  }
+
+  /* Profile */
+  .profile-page img {
+    max-width: 120px;
+  }
+
+  .profile-page h1 {
+    font-size: 1.8rem;
+  }
+
+  .profile-page h3 {
+    font-size: 1.2rem;
+  }
+
+  /* Buttons */
+  .btn-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn {
+    width: 100%;
+    margin: 0;
+  }
+
+  /* Services */
+  .services-box {
+    flex-direction: column;
+  }
+
+  /* Skills */
+  .skills-box {
+    flex-direction: column;
+  }
+
+  .skills-content .content span {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+  }
+
+  /* Portfolio */
+  .portfolio-box .img-box {
+    height: auto;
+  }
+
+  .portfolio-box .btn-box {
+    flex-direction: column;
+  }
+
+  /* Contact */
+  .contact-box textarea {
+    height: 120px;
   }
 }
